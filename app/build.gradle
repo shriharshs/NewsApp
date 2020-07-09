@@ -8,6 +8,10 @@ android {
     compileSdkVersion rootProject.compile_sdk
     buildToolsVersion rootProject.build_tools_version
 
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+
     defaultConfig {
         applicationId "com.shriharsh.newsapp"
         minSdkVersion rootProject.min_sdk
@@ -47,6 +51,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$architecture_components_version"
     implementation "androidx.lifecycle:lifecycle-common:$architecture_components_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$architecture_components_version"
+    implementation "androidx.recyclerview:recyclerview:$app_compat_version"
+    implementation "androidx.cardview:cardview:$card_view_version"
 
     implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
 
@@ -66,6 +72,15 @@ dependencies {
     implementation "com.google.code.gson:gson:$gson_version"
     implementation "com.squareup.retrofit2:converter-gson:$gson_converter_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$http_logging_version"
+
+    //Lottie
+    implementation "com.airbnb.android:lottie:$lottie_version"
+
+    //Shimmer
+    implementation "com.github.sharish:ShimmerRecyclerView:$shimmer_version"
+
+    //Glide
+    implementation "com.github.bumptech.glide:glide:$glide_version"
 
     //Testing
     testImplementation "junit:junit:$junit_version"

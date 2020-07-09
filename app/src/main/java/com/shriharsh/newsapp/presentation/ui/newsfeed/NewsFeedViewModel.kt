@@ -1,6 +1,7 @@
 package com.shriharsh.newsapp.presentation.ui.newsfeed
 
 import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -35,4 +36,7 @@ class NewsFeedViewModel @ViewModelInject constructor(
         }
     }
 
+    fun observerFeeds(): LiveData<Resource<List<Article>>> {
+        return newsFeedList
+    }
 }
