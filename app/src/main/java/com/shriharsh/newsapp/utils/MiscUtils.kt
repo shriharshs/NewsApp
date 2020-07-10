@@ -1,6 +1,10 @@
 package com.shriharsh.newsapp.utils
 
 import android.content.Context
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ClickableSpan
+import android.view.View
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -23,4 +27,18 @@ fun getFormattedDate(date: String?): String {
         val formatter = SimpleDateFormat("yyyy-MM-dd")
         formatter.format(parser.parse(date))
     } ?: ""
+}
+
+fun SpannableString.withClickableSpan(clickablePart: String, onClickListener: () -> Unit): SpannableString {
+    val clickableSpan = object : ClickableSpan() {
+        override fun onClick(widget: View) {
+            onClickListener.invoke()
+        }
+    }
+    val clickablePartStart = indexOf(clickablePart)
+    setSpan(clickableSpan,
+        clickablePartStart,
+        clickablePartStart + clickablePart.length,
+        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+    return this
 }

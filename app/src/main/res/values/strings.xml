@@ -2,5 +2,5 @@
     <string name="app_name">NewsApp</string>
     <string name="headlines">headlines</string>
     <string name="something_went_wrong_error">Something went wrong! Please check your internet connection</string>
-    <string name="cannot_open_lint">Unable to open link</string>
+    <string name="cannot_open_link">Unable to open link</string>
 </resources>

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.shriharsh.newsapp.R
 import com.shriharsh.newsapp.domain.model.Article
+import com.shriharsh.newsapp.presentation.ui.newsdetail.NewsDetailActivity
 import com.shriharsh.newsapp.presentation.ui.newsfeed.viewmodel.NewsFeedViewModel
 import com.shriharsh.newsapp.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,8 +21,13 @@ class NewsFeedActivity : AppCompatActivity() {
     private val newsListViewModel by viewModels<NewsFeedViewModel>()
     private val newsFeedAdapter: NewsFeedAdapter by lazy {
         NewsFeedAdapter(listOf(), onClick = { article ->
-           //open detail
+            openNewsDetail(article)
         })
+    }
+
+    private fun openNewsDetail(article: Article) {
+        startActivity(NewsDetailActivity.newInstance(this, article))
+        overridePendingTransition(R.anim.slide_in, R.anim.no_anim)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

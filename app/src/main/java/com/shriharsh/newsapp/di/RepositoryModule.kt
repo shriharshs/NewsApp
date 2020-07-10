@@ -1,8 +1,8 @@
 package com.shriharsh.newsapp.di
 
+import com.shriharsh.newsapp.data.NewsDataRepository
 import com.shriharsh.newsapp.data.local.model.ArticleDao
 import com.shriharsh.newsapp.data.local.source.NewsLocalDataSource
-import com.shriharsh.newsapp.data.remote.NewsDataRepository
 import com.shriharsh.newsapp.data.remote.network.NewsNetworkAPI
 import com.shriharsh.newsapp.data.remote.source.NewsRemoteDataSource
 import com.shriharsh.newsapp.domain.NewsRepository

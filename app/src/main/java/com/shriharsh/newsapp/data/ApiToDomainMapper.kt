@@ -1,4 +1,4 @@
-package com.shriharsh.newsapp.data.remote
+package com.shriharsh.newsapp.data
 
 import com.shriharsh.newsapp.data.remote.model.ArticleApi
 import com.shriharsh.newsapp.data.remote.model.NewsApi

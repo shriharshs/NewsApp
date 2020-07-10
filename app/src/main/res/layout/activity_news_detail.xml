@@ -1,8 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.ui.newsdetail.NewsDetailActivity">
+
+    <ImageView
+        android:id="@+id/iv_news_detail_banner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"/>
+
+    <ImageView
+        android:id="@+id/iv_detail_back"
+        android:layout_width="@dimen/dp_42"
+        android:layout_height="@dimen/dp_42"
+        android:layout_marginStart="@dimen/dp_24"
+        android:layout_marginTop="@dimen/dp_24"
+        android:background="@drawable/bg_back"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_news_feed_item_overlay" />
+
+    <TextView
+        android:id="@+id/tv_detail_news_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_24"
+        android:layout_marginEnd="@dimen/dp_24"
+        android:layout_marginBottom="@dimen/dp_64"
+        android:fontFamily="@font/robotoslab_bold"
+        android:textColor="@color/newsTitleColor"
+        android:textSize="@dimen/sp_29"
+        app:layout_constraintBottom_toTopOf="@id/tv_detail_news_source"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_detail_news_source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_24"
+        android:layout_marginBottom="@dimen/dp_16"
+        android:fontFamily="@font/robotoslab_regular"
+        android:textColor="@color/newsTitleColor"
+        android:textSize="@dimen/sp_20"
+        app:layout_constraintBottom_toTopOf="@id/tv_detail_news_description"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_detail_news_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_24"
+        android:fontFamily="@font/robotoslab_regular"
+        android:textColor="@color/newsTitleColor"
+        android:textSize="@dimen/sp_20"
+        app:layout_constraintBottom_toBottomOf="@id/tv_detail_news_source"
+        app:layout_constraintTop_toTopOf="@id/tv_detail_news_source"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_detail_news_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_24"
+        android:layout_marginEnd="@dimen/dp_24"
+        android:layout_marginBottom="@dimen/dp_16"
+        android:textSize="@dimen/sp_14"
+        android:textColorLink="@color/newsSourceColor"
+        android:fontFamily="@font/robotoslab_regular"
+        android:textColor="@color/newsSourceColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
