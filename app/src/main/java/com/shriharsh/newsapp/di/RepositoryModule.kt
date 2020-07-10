@@ -1,5 +1,7 @@
 package com.shriharsh.newsapp.di
 
+import com.shriharsh.newsapp.data.local.model.ArticleDao
+import com.shriharsh.newsapp.data.local.source.NewsLocalDataSource
 import com.shriharsh.newsapp.data.remote.NewsDataRepository
 import com.shriharsh.newsapp.data.remote.network.NewsNetworkAPI
 import com.shriharsh.newsapp.data.remote.source.NewsRemoteDataSource
@@ -20,10 +22,17 @@ class RepositoryModule {
         )
 
     @Provides
+    fun providesNewsLocalRepository(articleDao: ArticleDao) =
+        NewsLocalDataSource(
+            articleDao
+        )
+
+    @Provides
     fun providesNewsDataRepository(
-        remoteDataSource: NewsRemoteDataSource
+        remoteDataSource: NewsRemoteDataSource,
+        localDataSource: NewsLocalDataSource
     ): NewsRepository =
         NewsDataRepository(
-            remoteDataSource
+            remoteDataSource, localDataSource
         )
 }

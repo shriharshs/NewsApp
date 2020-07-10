@@ -1,4 +1,4 @@
-package com.shriharsh.newsapp.presentation.ui.newsfeed
+package com.shriharsh.newsapp.presentation.ui.newsfeed.viewmodel
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
@@ -26,7 +26,15 @@ class NewsFeedViewModel @ViewModelInject constructor(
                 }
                 is Resource.Failure -> {
                     Timber.e("Error = ${result.throwable}")
-                    newsFeedList.postValue(Resource.Failure(result.throwable))
+                    val cachedArticles = repository.getCachedArticles()
+
+                    if (!cachedArticles.isNullOrEmpty()){
+                        Timber.e("Cached articles - $cachedArticles")
+                        newsFeedList.postValue(Resource.Success(cachedArticles))
+                    }else {
+                        newsFeedList.postValue(Resource.Failure(result.throwable))
+                    }
+
                 }
                 is Resource.Loading -> {
                     Timber.e("Loading")

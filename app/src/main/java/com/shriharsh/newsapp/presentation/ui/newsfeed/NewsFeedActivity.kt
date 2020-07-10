@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.shriharsh.newsapp.R
 import com.shriharsh.newsapp.domain.model.Article
+import com.shriharsh.newsapp.presentation.ui.newsfeed.viewmodel.NewsFeedViewModel
 import com.shriharsh.newsapp.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_news_feed.*
